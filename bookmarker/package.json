@@ -5,7 +5,8 @@
   "main": "dist/app/main.js",
   "scripts": {
     "build": "tsc -p .",
-    "run": "electron .",
+    "watch":"tsc -w",
+    "run": "npm run build && electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,5 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^11.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.2"
   }
 }
