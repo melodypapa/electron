@@ -10,19 +10,21 @@
 </head>
 
 <body>
-    <h1>Hello from Electron</h1>
-    <p>
-        <button class="alert">Current Directory</button>
-    </p>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>Bookmarker</h1>
+    <div class="error-message"> </div>
+    <section class="add-new-link">
+        <form class="new-link-form">
+            <input type="url" class="new-link-url" placeholder="URL" size="100" required>
+            <input type="submit" class="new-link-submit" value="Submit" disabled>
+        </form>
+    </section>
+    <section class="links"></section>
+    <section class="controls">
+        <button class="clear-storage">Clear Storage</button>
+    </section>
 </body>
 <script>
-    const button = document.querySelector('.alert');
-    button.addEventListener('click', () => {
-        alert(__dirname);
-    })
+    require('./js/renderer.js');
 </script>
 
 </html>
