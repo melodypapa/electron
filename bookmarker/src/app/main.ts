@@ -10,5 +10,5 @@ app.on('ready', () => {
         } 
     });
     //const mainWindow = new BrowserWindow();
-    mainWindow.webContents.loadFile(path.join(__dirname,'../../pages/index.html'));
+    mainWindow.webContents.loadFile(path.join(__dirname,'../../app/index.html'));
 });
