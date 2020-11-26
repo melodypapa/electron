@@ -1,6 +1,10 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fire Sale</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
@@ -9,8 +13,13 @@
         <button id="open-file">Open File</button>
         <button id="save-markdown" disabled>Save File</button>
         <button id="revert" disabled>Revert</button>
-        <button id="save-hmtl">New File</button>
-        <button id="new-file">New File</button>
+        <button id="show-file">Save HTML</button>
+        <button id="open-in-default" disabled>Open in Default Application</button>
+    </section>
+    <section>
+        <label for="markdown" hidden>Markdown content</label>
+        <textarea class="raw-markdown" id="markdown"></textarea>
+        <div class="renderer-html" id="html"></div>
     </section>
     <script>
         require('./renderer.js');
