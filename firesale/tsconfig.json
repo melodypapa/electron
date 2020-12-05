@@ -2,7 +2,8 @@
     "compilerOptions": {
         "outDir": "./dist",
         "rootDir": "./src",
-        "module": "commonjs"
+        "module": "commonjs",
+        "sourceMap": true
     },
     "exclude": [
         "node_modules"
