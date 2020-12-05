@@ -1,4 +1,7 @@
+import { remote, ipcRenderer } from "electron";
 import * as marked from "marked";
+
+const mainProcess = remote.require('./main.js');
 
 const markdownView: HTMLTextAreaElement = document.querySelector('#markdown');
 const htmlView: HTMLElement = document.querySelector('#html');
@@ -12,9 +15,18 @@ const openInDefaultButton: HTMLButtonElement = document.querySelector('#open-in-
 
 const renderMarkdownToHtml = (markdown) => {
     htmlView.innerHTML = marked(markdown, { sanitize: true });
-}
+};
 
 markdownView.addEventListener('keyup', (event) => {
     const currentContent = markdownView.value;
     renderMarkdownToHtml(currentContent);
-})
+});
+
+openFileButton.addEventListener('click', () => {
+    mainProcess.getFileFromUser();
+});
+
+ipcRenderer.on('file-opened', (event, file, content: string) => {
+    markdownView.value = content;
+    renderMarkdownToHtml(content);
+});
