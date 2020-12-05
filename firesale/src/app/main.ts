@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from "electron";
 
-let mainWindow = null;
+let mainWindow:BrowserWindow = null;
 
 const appReady = () => {
     mainWindow = new BrowserWindow({ webPreferences: { nodeIntegration: true }, show: false });
@@ -8,6 +8,7 @@ const appReady = () => {
 
     mainWindow.once('ready-to-show', () => {
         mainWindow.show();
+        mainWindow.webContents.openDevTools();
     });
 
     mainWindow.on('closed', () => {
